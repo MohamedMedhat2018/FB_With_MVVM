@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"/>
 
         <Button
-            android:onClick="@{viewmodel.logout()}"
+            android:onClick="@{(v) -> viewmodel.logout(v)}"
             android:text="Logout"
             android:layout_centerHorizontal="true"
             android:layout_below="@id/textViewEmail"

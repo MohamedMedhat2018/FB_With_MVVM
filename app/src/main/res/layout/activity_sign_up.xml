@@ -27,15 +27,14 @@
                 android:id="@+id/login_title"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="40dp"
                 android:layout_marginTop="100dp"
+                android:layout_marginBottom="40dp"
+                android:elevation="6dp"
                 android:gravity="center_horizontal"
                 android:text="New User Signup"
                 android:textColor="#E19C74"
                 android:textSize="26sp"
-                android:textStyle="bold"
-                android:elevation="6dp"
-                />
+                android:textStyle="bold" />
 
             <RelativeLayout
                 android:id="@+id/rr_login_container"
@@ -91,9 +90,9 @@
                         android:drawablePadding="10dp"
                         android:hint="Password"
                         android:inputType="textPassword"
-                        android:textColor="#ABABAB"
                         android:singleLine="true"
-                        android:text="@{viewmodel.pass}" />
+                        android:text="@{viewmodel.pass}"
+                        android:textColor="#ABABAB" />
 
 
                     <Button
@@ -102,7 +101,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="22dp"
                         android:background="@color/colorPrimary"
-                        android:onClick="@={() -> viewmodel.signUp()}"
+                        android:onClick="@{() -> viewmodel.signUp()}"
                         android:text="Sign Up"
                         android:textAllCaps="false"
                         android:textColor="#fff"
@@ -113,11 +112,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:onClick="@={(v) -> viewmodel.goToLogin(v)}"
+                        android:onClick="@{(v) -> viewmodel.goToLogin(v)}"
                         android:text="Already have an account.\nLogin Here"
                         android:textAlignment="center"
-                        android:textColor="#E19C74"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:textColor="#E19C74" />
                 </LinearLayout>
 
             </RelativeLayout>
@@ -143,27 +142,27 @@
                 android:background="@drawable/user_profile_image_background"
                 android:elevation="4dp"
                 android:src="@drawable/girl"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
 
-<!--            <RelativeLayout-->
-<!--                android:id="@+id/user_profile_photo2"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_below="@+id/test2"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                android:background="@color/colorPrimary"-->
-<!--                android:elevation="0dp"-->
-<!--                android:src="@drawable/girl"-->
-<!--                android:visibility="visible"/>-->
+            <!--            <RelativeLayout-->
+            <!--                android:id="@+id/user_profile_photo2"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:layout_below="@+id/test2"-->
+            <!--                android:layout_marginTop="16dp"-->
+            <!--                android:background="@color/colorPrimary"-->
+            <!--                android:elevation="0dp"-->
+            <!--                android:src="@drawable/girl"-->
+            <!--                android:visibility="visible"/>-->
 
-<!--            <RelativeLayout-->
-<!--                android:id="@+id/test3"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="200dp"-->
-<!--                android:layout_above="@id/test"-->
-<!--                android:background="@color/colorPrimary"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                />-->
+            <!--            <RelativeLayout-->
+            <!--                android:id="@+id/test3"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="200dp"-->
+            <!--                android:layout_above="@id/test"-->
+            <!--                android:background="@color/colorPrimary"-->
+            <!--                android:layout_marginTop="20dp"-->
+            <!--                />-->
 
 
             <RelativeLayout
@@ -172,8 +171,7 @@
                 android:layout_height="match_parent"
                 android:layout_below="@id/rr_login_container"
                 android:background="@drawable/b2"
-                android:visibility="invisible"
-                >
+                android:visibility="invisible">
 
 
             </RelativeLayout>
@@ -183,11 +181,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_above="@id/user_profile_photo"
+                android:layout_marginBottom="50dp"
                 android:background="@drawable/b5"
                 android:elevation="4dp"
-                android:layout_marginBottom="50dp"
-                android:visibility="invisible"
-                >
+                android:visibility="invisible">
 
 
             </RelativeLayout>

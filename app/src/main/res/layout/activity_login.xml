@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     tools:context=".ui.auth.LoginActivity">
 
 
@@ -17,13 +14,21 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@null">
+       >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            />
 
         <RelativeLayout
             android:id="@+id/loginLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true">
+            android:layout_centerInParent="true"
+            android:background="@null"
+            >
 
             <TextView
                 android:id="@+id/login_title"
@@ -123,7 +128,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:onClick="@={(v) -> viewmodel.goToSignUp(v)}"
+                        android:onClick="@{(v) -> viewmodel.goToSignUp(v)}"
                         android:text="Don't have an account.\nRegister Here"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
@@ -143,38 +148,41 @@
                 android:src="@drawable/girl" />
 
 
-            <ImageButton
-                android:id="@+id/user_profile_photo2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_below="@+id/user_profile_photo"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="16dp"
-                android:background="@drawable/user_profile_image_background"
-                android:elevation="4dp"
-                android:src="@drawable/girl"
-                android:visibility="invisible" />
+<!--            <ImageButton-->
+<!--                android:id="@+id/user_profile_photo2"-->
+<!--                android:layout_width="100dp"-->
+<!--                android:layout_height="100dp"-->
+<!--                android:layout_below="@+id/user_profile_photo"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:background="@drawable/user_profile_image_background"-->
+<!--                android:elevation="4dp"-->
+<!--                android:src="@drawable/girl"-->
+<!--                android:visibility="invisible" />-->
 
 
-            <RelativeLayout
-                android:id="@+id/test"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/user_profile_photo2"
-                android:background="@drawable/b2">
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/test"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_below="@id/user_profile_photo2"-->
+<!--                android:background="@drawable/b2"-->
+<!--                android:visibility="invisible">-->
 
 
-            </RelativeLayout>
+<!--            </RelativeLayout>-->
 
-            <RelativeLayout
-                android:id="@+id/test2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_above="@id/user_profile_photo"
-                android:background="@drawable/b5">
+<!--            <RelativeLayout-->
+<!--                android:id="@+id/test2"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:layout_above="@id/user_profile_photo"-->
+<!--                android:background="@drawable/b5"-->
+<!--                android:visibility="invisible"-->
+<!--                >-->
 
 
-            </RelativeLayout>
+<!--            </RelativeLayout>-->
 
         </RelativeLayout>
 
@@ -189,6 +197,5 @@
 
 
     </RelativeLayout>
-
 
 </layout>
