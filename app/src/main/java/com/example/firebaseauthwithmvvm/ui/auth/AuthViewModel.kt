@@ -1,18 +1,22 @@
 package com.example.firebaseauthwithmvvm.ui.auth
 
 import android.content.Intent
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.ViewModel
 import com.example.firebaseauthwithmvvm.data.repository.UserRepository
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
+import kotlin.math.log
 
 class AuthViewModel(private val repository: UserRepository) : ViewModel() {
 
     //email nad password for the input
     var email: String? = null
     var pass: String? = null
+
+    var TAG = AuthViewModel::class.java.canonicalName
 
     //auth listener
     var authListener: AuthListener? = null
@@ -33,6 +37,8 @@ class AuthViewModel(private val repository: UserRepository) : ViewModel() {
             return
         }
 
+        Log.e(TAG, "Login " + email + " and " + pass   )
+
         authListener?.onStarted()
 
 
@@ -41,6 +47,7 @@ class AuthViewModel(private val repository: UserRepository) : ViewModel() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 authListener?.onSuccess()
+                Log.e(TAG, "Login2 " + email + " and " + pass   )
 
             }, {
                 authListener?.onFailure(it.message!!)
@@ -59,6 +66,9 @@ class AuthViewModel(private val repository: UserRepository) : ViewModel() {
             return
         }
 
+
+        Log.e(TAG, "Register " + email + " and " + pass   )
+
         authListener?.onStarted()
 
         val disposable = repository.register(email!!, pass!!)
@@ -66,6 +76,10 @@ class AuthViewModel(private val repository: UserRepository) : ViewModel() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 authListener?.onSuccess()
+
+                Log.e(TAG, "Register2 " + email + " and " + pass   )
+
+
             }, {
                 authListener?.onFailure(it.message!!)
             })

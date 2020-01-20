@@ -4,6 +4,7 @@ import android.content.Intent
 import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import android.widget.Toast.LENGTH_SHORT
@@ -26,6 +27,8 @@ class LoginActivity : AppCompatActivity(), AuthListener, KodeinAware {
     override val kodein by kodein()
 
     private val factory: AuthViewModelFactory by instance()
+
+    private val TAG = LoginActivity::class.java.canonicalName
 
     private lateinit var viewModel: AuthViewModel
 
@@ -50,6 +53,9 @@ class LoginActivity : AppCompatActivity(), AuthListener, KodeinAware {
         super.onStart()
         progressbar.visibility = View.VISIBLE
 
+        Log.e(TAG, "Login test "   )
+
+
 //        Intent(this, MainActivity::class.java).also {
 //            it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 //            startActivity(it)
@@ -58,6 +64,8 @@ class LoginActivity : AppCompatActivity(), AuthListener, KodeinAware {
 
     override fun onSuccess() {
         progressbar.visibility = View.GONE
+        Log.e(TAG, "Login test2 "   )
+
         startHomeActivty()
     }
 
