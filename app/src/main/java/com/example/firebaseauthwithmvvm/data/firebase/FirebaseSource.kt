@@ -23,7 +23,7 @@ class FirebaseSource {
                     emitter.onComplete()
                 else
                     emitter.onError(it.exception!!)
-            }else {
+            } else {
                 Log.e(TAG, "FirebaseSoure Register2222 ")
             }
         }
@@ -31,28 +31,31 @@ class FirebaseSource {
 
 
     fun register(email: String, pass: String) = Completable.create { emitter ->
-        Log.e(TAG, "FirebaseSoure Register999 ")
-        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, pass).addOnCompleteListener {
-            Log.e(TAG, "FirebaseSoure Register Failed3.1 ")
-            if (!emitter.isDisposed) {
-            Log.e(TAG, "FirebaseSoure Register1111 ")
+        Log.e(TAG, "FirebaseSoure Register999 " + email + " " + pass)
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, pass)
+            .addOnCompleteListener {
                 if (it.isSuccessful) {
-                    Log.e(TAG, "FirebaseSoure Register Successful ")
-                    emitter.onComplete()
+                    Log.e(TAG, "FirebaseSoure Register Success " + emitter.isDisposed + " c " + it.exception)
                 } else {
-                    Log.e(TAG, "FirebaseSoure Register Failed ")
-                    emitter.onError(it.exception!!)
+                    Log.e(TAG, "FirebaseSoure Register Not Success ")
                 }
-            } else {
-                Log.e(TAG, "FirebaseSoure Register error 2 " + emitter.onError(it.exception!!))
+                if (emitter.isDisposed) {
+                    Log.e(TAG, "FirebaseSoure Register1111 ")
+                    if (it.isSuccessful) {
+                        Log.e(TAG, "FirebaseSoure Register Successful ")
+                        emitter.onComplete()
+                    } else {
+                        Log.e(TAG, "FirebaseSoure Register Failed ")
+                        emitter.onError(it.exception!!)
+                    }
+                } else {
+                    Log.e(TAG, "FirebaseSoure Register error 2 ")
+
+                }
+            }.addOnFailureListener {
+                Log.e(TAG, "FirebaseSoure Register Failed3 ")
+
             }
-        } .addOnFailureListener {
-            Log.e(TAG, "FirebaseSoure Register Failed3 ")
-
-        }.addOnSuccessListener {
-            Log.e(TAG, "FirebaseSoure Register Failed3.2 ")
-
-        }
 
     }
 

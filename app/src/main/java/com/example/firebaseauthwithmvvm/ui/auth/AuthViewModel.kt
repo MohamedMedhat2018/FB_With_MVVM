@@ -88,7 +88,7 @@ class AuthViewModel(private val repository: UserRepository) : ViewModel() {
 
             }, {
                 authListener?.onFailure(it.message!!)
-                Log.e(TAG, "Register0 " + email + " and " + pass + " error " + it.message!!)
+                Log.e(TAG, "RegisterFailure11 " + email + " and " + pass + " error " + it.message!!)
             })
 
         disposables.add(disposable)
