@@ -116,7 +116,7 @@
                         android:hint="Password"
                         android:inputType="textPassword"
                         android:singleLine="true"
-                        android:text="@{viewmodel.pass}"
+                        android:text="@={viewmodel.pass}"
                         android:textColor="#ABABAB" />
 
 

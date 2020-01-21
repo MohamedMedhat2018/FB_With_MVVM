@@ -32,12 +32,14 @@ class AuthViewModel(private val repository: UserRepository) : ViewModel() {
     //function to perform login
     fun login() {
 
+        Log.e(TAG, "ViewModel Login1 " + email + " and " + pass)
+
         if (email.isNullOrEmpty() || pass.isNullOrEmpty()) {
             authListener?.onFailure("Invaild Phone or Password")
             return
         }
 
-        Log.e(TAG, "Login " + email + " and " + pass   )
+        Log.e(TAG, "ViewModel Login2 " + email + " and " + pass)
 
         authListener?.onStarted()
 
@@ -47,7 +49,7 @@ class AuthViewModel(private val repository: UserRepository) : ViewModel() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
                 authListener?.onSuccess()
-                Log.e(TAG, "Login2 " + email + " and " + pass   )
+                Log.e(TAG, "Login2 " + email + " and " + pass)
 
             }, {
                 authListener?.onFailure(it.message!!)
@@ -59,6 +61,9 @@ class AuthViewModel(private val repository: UserRepository) : ViewModel() {
 
     fun signUp() {
 
+
+        Log.e(TAG, "ViewModel Register1 " + email + " and " + pass)
+
         if (email.isNullOrEmpty() || pass.isNullOrEmpty()) {
 
             authListener?.onFailure("Please Input all values")
@@ -67,7 +72,7 @@ class AuthViewModel(private val repository: UserRepository) : ViewModel() {
         }
 
 
-        Log.e(TAG, "Register " + email + " and " + pass   )
+        Log.e(TAG, "Register " + email + " and " + pass)
 
         authListener?.onStarted()
 
@@ -75,16 +80,19 @@ class AuthViewModel(private val repository: UserRepository) : ViewModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                authListener?.onSuccess()
 
-                Log.e(TAG, "Register2 " + email + " and " + pass   )
+                Log.e(TAG, "Register2 " + email + " and " + pass)
+
+                authListener?.onSuccess()
 
 
             }, {
                 authListener?.onFailure(it.message!!)
+                Log.e(TAG, "Register0 " + email + " and " + pass + " error " + it.message!!)
             })
 
         disposables.add(disposable)
+        Log.e(TAG, "Register00 " + disposable.isDisposed)
     }
 
 
